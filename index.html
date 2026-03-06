@@ -174,29 +174,13 @@
       gap: 2.5rem;
     }
 
-    /* Uncomment and use the img tag below if you have a photo */
-    /* .avatar-photo {
+    .avatar-photo {
       width: 112px;
       height: 112px;
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
       border: 3px solid var(--border);
-    } */
-
-    .avatar-initials {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      background: var(--accent-dim);
-      color: var(--accent);
-      font-size: 1.8rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      letter-spacing: -0.02em;
     }
 
     .hero-text h1 {
@@ -509,7 +493,7 @@
 
       .hero-inner { flex-direction: column; gap: 1.5rem; }
 
-      .avatar-initials { width: 72px; height: 72px; font-size: 1.4rem; }
+      .avatar-photo { width: 80px; height: 80px; }
 
       #topnav nav a { font-size: 0.78rem; padding: 0.25rem 0.45rem; }
 
@@ -557,8 +541,7 @@
     <div class="container">
       <div class="hero-inner">
 
-        <!-- EDIT: replace with <img src="photo.jpg" alt="…" class="avatar-photo"> if you have a photo -->
-        <div class="avatar-initials" aria-hidden="true">AS</div>
+        <img src="photo.jpg" alt="Anand Shrivastava" class="avatar-photo">
 
         <div class="hero-text">
           <!-- EDIT: your full name -->

@@ -1,542 +1,31 @@
-<!--
-================================================================================
-  ACADEMIC PROFILE WEBSITE — Anand Shrivastava
-  Hosted on GitHub Pages at https://econanand.github.io
-================================================================================
-
-  HOW TO CUSTOMIZE THIS FILE
-  ---------------------------
-  1. PERSONAL INFO: Search for "<!-- EDIT:" comments throughout the file to find
-     every piece of content that may need updating.
-
-  2. PHOTO: Replace the initials avatar by uncommenting the <img> tag in the
-     #hero section and pointing it at your photo file, e.g.:
-       <img src="photo.jpg" alt="Anand Shrivastava" class="avatar-photo">
-     Then delete (or hide) the <div class="avatar-initials"> block.
-
-  3. CV PDF: Upload your CV as "cv.pdf" to the root of this repo, or update the
-     href in the #cv section to point to the correct URL.
-
-  4. ACCENT COLOR: One line to change — search for "--accent:" in the <style>
-     block and replace the hex value.
-
-  5. GOOGLE FONTS: The page loads "Inter" via Google Fonts. To use a different
-     font, update the <link> tag in <head> and the font-family in :root.
-
-  6. ADDING / REMOVING SECTIONS: Each section is wrapped in a <section id="…">
-     tag. Copy, delete, or reorder those blocks freely. Remember to keep the
-     <nav> links in sync.
-================================================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- EDIT: page title shown in browser tab -->
   <title>Anand Shrivastava — Economist</title>
   <meta name="description" content="Anand Shrivastava — Associate Professor of Economics, Azim Premji University. Research in political economics, development economics, and applied microeconomics." />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <style>
-    /* =====================================================================
-       DESIGN TOKENS — change these two lines to restyle the whole page
-       ===================================================================== */
-    :root {
-      --accent:      #2563eb;   /* blue — swap for any hex, e.g. #0f766e */
-      --accent-dim:  #dbeafe;
-      --text:        #1a1a1a;
-      --muted:       #6b7280;
-      --border:      #e5e7eb;
-      --bg:          #ffffff;
-      --bg-alt:      #f9fafb;
-      --font:        'Inter', system-ui, -apple-system, sans-serif;
-      --max-w:       740px;
-      --section-gap: 5rem;
-    }
-
-    /* =====================================================================
-       RESET & BASE
-       ===================================================================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      font-family: var(--font);
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
-
-    ul { list-style: none; }
-
-    img { max-width: 100%; display: block; }
-
-    /* =====================================================================
-       LAYOUT HELPERS
-       ===================================================================== */
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section { padding: var(--section-gap) 0; }
-    section:nth-of-type(even) { background: var(--bg-alt); }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 2rem;
-      color: var(--text);
-    }
-
-    /* =====================================================================
-       TOP NAV
-       ===================================================================== */
-    #topnav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    #topnav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 3.5rem;
-      gap: 1rem;
-    }
-
-    #topnav .nav-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    #topnav nav {
-      display: flex;
-      gap: 0.25rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    #topnav nav a {
-      font-size: 0.85rem;
-      color: var(--muted);
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      transition: color 0.15s, background 0.15s;
-    }
-
-    #topnav nav a:hover {
-      color: var(--accent);
-      background: var(--accent-dim);
-      text-decoration: none;
-    }
-
-    /* =====================================================================
-       HERO
-       ===================================================================== */
-    #hero {
-      padding: 5rem 0 4rem;
-      background: var(--bg);
-    }
-
-    .hero-inner {
-      display: flex;
-      align-items: flex-start;
-      gap: 2.5rem;
-    }
-
-    .avatar-photo {
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      border: 3px solid var(--border);
-    }
-
-    .hero-text h1 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-tagline {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-inst {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .hero-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.3rem 0.85rem;
-      transition: color 0.15s, border-color 0.15s;
-    }
-
-    .hero-links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* =====================================================================
-       ABOUT
-       ===================================================================== */
-    #about p {
-      font-size: 1.05rem;
-      color: #374151;
-      max-width: 640px;
-      margin-bottom: 1rem;
-    }
-
-    /* =====================================================================
-       RESEARCH
-       ===================================================================== */
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 3rem;
-    }
-
-    .interest-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.25rem 1.5rem;
-    }
-
-    .interest-card h3 {
-      font-size: 0.92rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: var(--text);
-    }
-
-    .interest-card p {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .subsection-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .project-list li {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
-      color: #374151;
-    }
-
-    .project-list li:last-child { border-bottom: none; }
-
-    .project-list li strong { color: var(--text); }
-
-    /* =====================================================================
-       PUBLICATIONS
-       ===================================================================== */
-    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
-
-    .pub-item {
-      padding-left: 1rem;
-      border-left: 3px solid var(--border);
-      transition: border-color 0.15s;
-    }
-
-    .pub-item:hover { border-left-color: var(--accent); }
-
-    .pub-title {
-      font-size: 0.975rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-    }
-
-    .pub-authors {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 0.15rem;
-    }
-
-    .pub-venue {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .pub-venue em { font-style: italic; }
-
-    .pub-badge {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      background: var(--accent-dim);
-      color: var(--accent);
-      border-radius: 3px;
-      padding: 0.1rem 0.45rem;
-      margin-left: 0.5rem;
-      vertical-align: middle;
-    }
-
-    /* =====================================================================
-       TEACHING
-       ===================================================================== */
-    .course-list { display: flex; flex-direction: column; gap: 0.75rem; }
-
-    .course-item {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.85rem 1rem;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      flex-wrap: wrap;
-    }
-
-    .course-name {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .course-meta {
-      font-size: 0.82rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    /* =====================================================================
-       CV
-       ===================================================================== */
-    #cv { text-align: center; }
-
-    #cv p {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.95rem;
-      font-weight: 500;
-      padding: 0.75rem 1.75rem;
-      border-radius: 6px;
-      transition: opacity 0.15s;
-    }
-
-    .btn-primary:hover { opacity: 0.88; text-decoration: none; }
-
-    /* =====================================================================
-       FOOTER
-       ===================================================================== */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    footer a { color: var(--muted); }
-    footer a:hover { color: var(--accent); }
-
-    /* =====================================================================
-       RESEARCH — interactive two-column layout
-       ===================================================================== */
-    .research-layout {
-      display: grid;
-      grid-template-columns: 175px 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .research-sidebar {
-      position: sticky;
-      top: 4.5rem;
-    }
-
-    .sidebar-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .theme-pills {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .theme-pill {
-      display: block;
-      width: 100%;
-      padding: 0.35rem 0.85rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      font-family: var(--font);
-      color: var(--muted);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      cursor: pointer;
-      text-align: left;
-      line-height: 1.4;
-      transition: color 0.15s, background 0.15s, border-color 0.15s;
-    }
-
-    .theme-pill:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
-
-    .theme-pill.active {
-      color: var(--accent);
-      background: var(--accent-dim);
-      border-color: var(--accent);
-      font-weight: 600;
-    }
-
-    .research-narrative { min-width: 0; }
-
-    .research-para {
-      font-size: 1.05rem;
-      color: #374151;
-      margin-bottom: 1.25rem;
-      padding: 0.5rem 0.75rem;
-      margin-left: -0.75rem;
-      border-radius: 6px;
-    }
-
-    .research-para:last-child { margin-bottom: 0; }
-
-    @keyframes highlight-fade {
-      0%   { background-color: #fef9c3; }
-      65%  { background-color: #fef9c3; }
-      100% { background-color: transparent; }
-    }
-
-    .research-para.highlight {
-      animation: highlight-fade 2s ease forwards;
-    }
-
-    /* =====================================================================
-       RESPONSIVE
-       ===================================================================== */
-    @media (max-width: 600px) {
-      :root { --section-gap: 3.5rem; }
-
-      .hero-inner { flex-direction: column; gap: 1.5rem; }
-
-      .avatar-photo { width: 80px; height: 80px; }
-
-      #topnav nav a { font-size: 0.78rem; padding: 0.25rem 0.45rem; }
-
-      .research-grid { grid-template-columns: 1fr; }
-
-      .research-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .research-sidebar { position: static; }
-
-      .theme-pills { flex-direction: row; flex-wrap: wrap; }
-
-      .theme-pill { width: auto; }
-
-      .course-item { flex-direction: column; gap: 0.25rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- =====================================================================
-       TOP NAV
-       ===================================================================== -->
   <header id="topnav">
     <div class="container">
-      <!-- EDIT: short name in top bar -->
-      <span class="nav-name">Anand Shrivastava</span>
-      <nav aria-label="Page sections">
+      <a href="index.html" class="nav-name">Anand Shrivastava</a>
+      <nav aria-label="Site sections">
         <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#teaching">Teaching</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
         <a href="#cv">CV</a>
       </nav>
     </div>
   </header>
 
-  <!-- =====================================================================
-       HERO
-       ===================================================================== -->
+  <!-- HERO -->
   <section id="hero">
     <div class="container">
       <div class="hero-inner">
@@ -544,15 +33,11 @@
         <img src="photo.jpg" alt="Anand Shrivastava" class="avatar-photo">
 
         <div class="hero-text">
-          <!-- EDIT: your full name -->
           <h1>Anand Shrivastava</h1>
-          <!-- EDIT: your title -->
           <p class="hero-tagline">Associate Professor of Economics</p>
-          <!-- EDIT: your institution and location -->
           <p class="hero-inst">Azim Premji University, Bengaluru &nbsp;·&nbsp; Faculty Fellow, Centre for Sustainable Employment</p>
 
           <div class="hero-links">
-            <!-- EDIT: update or add contact/profile links -->
             <a href="mailto:anand.shrivastava@apu.edu.in">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               Email
@@ -579,15 +64,12 @@
     </div>
   </section>
 
-  <!-- =====================================================================
-       ABOUT
-       ===================================================================== -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <p class="section-label">About</p>
       <h2 class="section-title">Biography</h2>
 
-      <!-- EDIT: your bio paragraphs -->
       <p>
         I am an Associate Professor of Economics at the School of Arts and Sciences,
         Azim Premji University, Bengaluru, and a Faculty Fellow at the Centre for
@@ -609,134 +91,19 @@
     </div>
   </section>
 
-  <!-- =====================================================================
-       RESEARCH
-       ===================================================================== -->
-  <section id="research">
+  <!-- RESEARCH OVERVIEW -->
+  <section id="research-overview">
     <div class="container">
       <p class="section-label">Research</p>
-      <h2 class="section-title">Research Interests</h2>
+      <h2 class="section-title">Research &amp; Publications</h2>
 
-      <div class="research-layout">
+      <p style="font-size:1.05rem; color:#374151; max-width:640px;">
+        My work spans the economics of conflict, political economy, labour markets,
+        and development — with India as the primary empirical setting. I use structural
+        modelling, quasi-experimental methods, and large-scale administrative and survey data.
+      </p>
 
-        <!-- LEFT: theme pills -->
-        <aside class="research-sidebar" aria-label="Research themes">
-          <p class="sidebar-label">Themes</p>
-          <div class="theme-pills">
-            <button class="theme-pill" data-theme="conflict">Economics of Conflict</button>
-            <button class="theme-pill" data-theme="political-economy">Political Economy</button>
-            <button class="theme-pill" data-theme="labour">Labour Economics</button>
-            <button class="theme-pill" data-theme="identity">Identity, Religion &amp; History</button>
-            <button class="theme-pill" data-theme="development">Development Economics</button>
-            <button class="theme-pill" data-theme="computational">Computational Methods</button>
-          </div>
-        </aside>
-
-        <!-- RIGHT: narrative -->
-        <div class="research-narrative">
-
-          <p class="research-para" id="rp-conflict"
-             data-themes="conflict political-economy">
-            A central strand of my work concerns the economics of conflict — what
-            causes communal violence and civil war, and how these episodes shape
-            economic outcomes. My doctoral dissertation examined riots and public
-            finance in India, and subsequent work studies how the Maoist insurgency
-            responds to changes in wages and state capacity. I am also interested
-            in how religious identity fuels electoral mobilisation and shapes voting
-            behaviour across Indian constituencies, research that has appeared in
-            the <em>Journal of Development Economics</em>.
-          </p>
-
-          <p class="research-para" id="rp-identity"
-             data-themes="identity political-economy development">
-            Questions of identity — religion, caste, and colonial culture — run
-            through much of my research. With Sriya Iyer, Lakshmi Chaudhary, and
-            Jared Rubin I have examined how colonial-era religious institutions leave
-            lasting imprints on public-goods provision and cooperative behaviour
-            (<em>Journal of Economic Behavior &amp; Organization</em>). More recent
-            work investigates the mental-health consequences of Covid-19 across
-            religious groups in India (<em>European Economic Review</em>, 2023), and
-            how economic shocks historically triggered episodes of temple desecration
-            in medieval India.
-          </p>
-
-          <p class="research-para" id="rp-labour"
-             data-themes="labour development">
-            A second major focus is India's labour market. I study formal and
-            informal employment, wage dynamics, gender and caste-based occupational
-            segregation, and the mechanics of public workfare programmes such as
-            MGNREGA. Work with Rosa Abraham has systematically evaluated the
-            comparability of India's major employment surveys — a methodological
-            contribution that undergirds the annual <em>State of Working India</em>
-            reports produced by the Centre for Sustainable Employment at Azim Premji
-            University.
-          </p>
-
-          <p class="research-para" id="rp-development"
-             data-themes="development political-economy">
-            I am also interested in the fiscal dimensions of development. With
-            Girish Bahal, I have studied how intergovernmental transfers drive
-            inflationary pressure in Indian states (<em>Empirical Economics</em>)
-            and how supply-side volatility in public works programmes affects
-            beneficiary households (<em>Journal of Development Economics</em>).
-            Ongoing work examines how production-network linkages propagate
-            firm-level shocks through the broader economy.
-          </p>
-
-          <p class="research-para" id="rp-computational"
-             data-themes="computational labour development">
-            Across all these areas I rely on structural modelling, quasi-experimental
-            identification, and large-scale administrative and survey data. I am
-            engaged in building better data infrastructure for Indian labour-market
-            research — including the India Working Survey, a nationally
-            representative panel — and I teach quantitative and computational methods
-            to undergraduate and postgraduate students at Azim Premji University.
-          </p>
-
-        </div><!-- /.research-narrative -->
-      </div><!-- /.research-layout -->
-
-      <!-- Working papers -->
-      <h3 class="subsection-title" style="margin-top:3rem;">Selected Working Papers</h3>
-      <ul class="project-list">
-        <li>
-          <strong>Civil Conflict with Rising Wages and Increasing State Capacity</strong> —
-          Theory and application to the Maoist insurgency in India.
-        </li>
-        <li>
-          <strong>Propagation of Firm-Level Shocks through Production Networks</strong>
-          (with G. Bahal)
-        </li>
-        <li>
-          <strong>Does Anticipated Discrimination Explain Gender Segregation in the Labour Market?</strong>
-          (with J. Feld and G. Bahal)
-        </li>
-        <li>
-          <strong>Caste and the Missing Middle</strong> (with A. Jayadev)
-        </li>
-        <li>
-          <strong>Economic Shocks and Temple Desecrations in Medieval India</strong>
-          (with S. Iyer and R. Ticku) — under review
-        </li>
-        <li>
-          <strong>The India Working Survey</strong>
-          (with R. Lahoti, R. Abraham, A. Basole, H. Swaminathan, D. Goel, and G. Bahal)
-        </li>
-      </ul>
-
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       PUBLICATIONS
-       ===================================================================== -->
-  <section id="publications">
-    <div class="container">
-      <p class="section-label">Publications</p>
-      <h2 class="section-title">Publications</h2>
-
-      <!-- EDIT: add/remove publication entries following this pattern -->
-      <h3 class="subsection-title">Journal Articles</h3>
+      <h3 class="subsection-title" style="margin-top:2rem;">Selected Publications</h3>
       <div class="pub-list">
 
         <div class="pub-item">
@@ -746,27 +113,9 @@
         </div>
 
         <div class="pub-item">
-          <p class="pub-title">How Comparable are India's Labour Market Surveys?</p>
-          <p class="pub-authors">Abraham, R. and Shrivastava, A.</p>
-          <p class="pub-venue"><em>Indian Journal of Labour Economics</em>, 65, 321–346 &nbsp;·&nbsp; 2022</p>
-        </div>
-
-        <div class="pub-item">
-          <p class="pub-title">Fiscal Transfers and Inflation: Evidence from India</p>
-          <p class="pub-authors">Bahal, G. and Shrivastava, A.</p>
-          <p class="pub-venue"><em>Empirical Economics</em>, 63, 1837–1858 &nbsp;·&nbsp; 2022</p>
-        </div>
-
-        <div class="pub-item">
           <p class="pub-title">Supply Variabilities in Public Workfares</p>
           <p class="pub-authors">Bahal, G. and Shrivastava, A.</p>
           <p class="pub-venue"><em>Journal of Development Economics</em>, 150 &nbsp;·&nbsp; 2021</p>
-        </div>
-
-        <div class="pub-item">
-          <p class="pub-title">Culture and Colonial Legacy: Evidence from Public Goods Games</p>
-          <p class="pub-authors">Chaudhary, L., Iyer, S., Rubin, J., and Shrivastava, A.</p>
-          <p class="pub-venue"><em>Journal of Economic Behavior &amp; Organization</em>, 173, 107–129 &nbsp;·&nbsp; 2020</p>
         </div>
 
         <div class="pub-item">
@@ -775,99 +124,60 @@
           <p class="pub-venue"><em>Journal of Development Economics</em>, 131, 104–122 &nbsp;·&nbsp; 2018</p>
         </div>
 
-        <div class="pub-item">
-          <p class="pub-title">Why Behavioural Economics Will Not Save the World</p>
-          <p class="pub-authors">Shrivastava, A.</p>
-          <p class="pub-venue"><em>Economic and Political Weekly</em>, 52(46) &nbsp;·&nbsp; 2017</p>
-        </div>
-
       </div>
 
-      <!-- EDIT: reports and book chapters -->
-      <h3 class="subsection-title" style="margin-top:2.5rem;">Reports &amp; Book Chapters</h3>
-      <div class="pub-list">
-
-        <div class="pub-item">
-          <p class="pub-title">State of Working India 2023: Social Identities and Labour Market Outcomes</p>
-          <p class="pub-authors">Basole, A., Abraham, R., Rakshit, A., Vijayamba, R., Shrivastava, A., and Halder, T.</p>
-          <p class="pub-venue">Centre for Sustainable Employment, Azim Premji University &nbsp;·&nbsp; 2023</p>
-        </div>
-
-        <div class="pub-item">
-          <p class="pub-title">Religion and Labour Markets in India</p>
-          <p class="pub-authors">Bahal, G., Chandra, U., Iyer, S., and Shrivastava, A.</p>
-          <p class="pub-venue">In F. Ibrahim (ed.), Oxford University Press &nbsp;·&nbsp; 2021</p>
-        </div>
-
-        <div class="pub-item">
-          <p class="pub-title">State of Working India 2021: One Year of Covid-19</p>
-          <p class="pub-authors">Basole, A., Abraham, R., Lahoti, R., Shrivastava, A., and others</p>
-          <p class="pub-venue">Centre for Sustainable Employment, Azim Premji University &nbsp;·&nbsp; 2021</p>
-        </div>
-
-        <div class="pub-item">
-          <p class="pub-title">State of Working India 2019: What Do Household Surveys Reveal About Employment in India Since 2016?</p>
-          <p class="pub-authors">Abraham, R., Basole, A., and Shrivastava, A.</p>
-          <p class="pub-venue">Centre for Sustainable Employment, Azim Premji University &nbsp;·&nbsp; 2019</p>
-        </div>
-
-      </div>
+      <a href="research.html" class="view-more">
+        View all research and publications
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
     </div>
   </section>
 
-  <!-- =====================================================================
-       TEACHING
-       ===================================================================== -->
-  <section id="teaching">
+  <!-- TEACHING OVERVIEW -->
+  <section id="teaching-overview">
     <div class="container">
       <p class="section-label">Teaching</p>
-      <h2 class="section-title">Courses Taught</h2>
+      <h2 class="section-title">Courses</h2>
 
-      <!-- EDIT: add/remove courses; format: "Course Name | Term Year | Level" -->
       <div class="course-list">
-
         <div class="course-item">
           <span class="course-name">Quantitative Methods in Economics</span>
           <span class="course-meta">Azim Premji University &nbsp;·&nbsp; Undergraduate</span>
         </div>
-
         <div class="course-item">
           <span class="course-name">Intermediate Microeconomics</span>
           <span class="course-meta">Azim Premji University &nbsp;·&nbsp; Undergraduate</span>
         </div>
-
         <div class="course-item">
           <span class="course-name">Development Economics</span>
           <span class="course-meta">Azim Premji University &nbsp;·&nbsp; Postgraduate</span>
         </div>
-
         <div class="course-item">
           <span class="course-name">Political Economy</span>
           <span class="course-meta">Azim Premji University &nbsp;·&nbsp; Postgraduate</span>
         </div>
-
         <div class="course-item">
           <span class="course-name">Economics of Conflict</span>
           <span class="course-meta">Azim Premji University &nbsp;·&nbsp; Postgraduate / Elective</span>
         </div>
-
       </div>
+
+      <a href="teaching.html" class="view-more">
+        Course details and materials
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
     </div>
   </section>
 
-  <!-- =====================================================================
-       CV
-       ===================================================================== -->
+  <!-- CV -->
   <section id="cv">
     <div class="container">
       <p class="section-label">Curriculum Vitae</p>
       <h2 class="section-title">Download CV</h2>
-      <!-- EDIT: description text -->
       <p>
         A full curriculum vitae including education, publications, working papers,
         conference presentations, and professional service.
       </p>
-      <!-- EDIT: update href to point to your CV PDF, e.g. "cv.pdf" if in same folder -->
       <a href="cv.pdf" class="btn-primary" download>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download CV (PDF)
@@ -875,12 +185,8 @@
     </div>
   </section>
 
-  <!-- =====================================================================
-       FOOTER
-       ===================================================================== -->
   <footer>
     <div class="container">
-      <!-- EDIT: footer text -->
       <p>
         Anand Shrivastava &nbsp;·&nbsp;
         <a href="https://azimpremjiuniversity.edu.in/people/anand-shrivastava" target="_blank" rel="noopener">Azim Premji University</a>
@@ -892,62 +198,6 @@
       </p>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      var pills = document.querySelectorAll('.theme-pill');
-      var paras = document.querySelectorAll('.research-para');
-      var activeTheme = null;
-
-      pills.forEach(function (pill) {
-        pill.addEventListener('click', function () {
-          var theme = pill.dataset.theme;
-
-          // Toggle off when clicking the already-active pill
-          if (activeTheme === theme) {
-            pill.classList.remove('active');
-            paras.forEach(function (p) { p.classList.remove('highlight'); });
-            activeTheme = null;
-            return;
-          }
-
-          // Deactivate previous pill and clear highlights
-          pills.forEach(function (p) { p.classList.remove('active'); });
-          paras.forEach(function (p) {
-            p.classList.remove('highlight');
-            void p.offsetWidth; // force reflow so animation can restart
-          });
-
-          pill.classList.add('active');
-          activeTheme = theme;
-
-          // Collect matching paragraphs
-          var matches = [];
-          paras.forEach(function (p) {
-            if ((p.dataset.themes || '').split(' ').indexOf(theme) !== -1) {
-              matches.push(p);
-            }
-          });
-
-          if (!matches.length) return;
-
-          // Smooth-scroll to first match (offset for sticky nav)
-          var offset = 72;
-          var top = matches[0].getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top: top, behavior: 'smooth' });
-
-          // Highlight after scroll settles
-          setTimeout(function () {
-            matches.forEach(function (p) {
-              p.classList.remove('highlight');
-              void p.offsetWidth;
-              p.classList.add('highlight');
-            });
-          }, 320);
-        });
-      });
-    })();
-  </script>
 
 </body>
 </html>

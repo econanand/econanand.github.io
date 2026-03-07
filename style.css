@@ -1,0 +1,474 @@
+/* =====================================================================
+   DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --accent:      #2563eb;
+  --accent-dim:  #dbeafe;
+  --text:        #1a1a1a;
+  --muted:       #6b7280;
+  --border:      #e5e7eb;
+  --bg:          #ffffff;
+  --bg-alt:      #f9fafb;
+  --font:        'Inter', system-ui, -apple-system, sans-serif;
+  --max-w:       740px;
+  --section-gap: 5rem;
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+
+ul { list-style: none; }
+
+img { max-width: 100%; display: block; }
+
+/* =====================================================================
+   LAYOUT HELPERS
+   ===================================================================== */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section { padding: var(--section-gap) 0; }
+section:nth-of-type(even) { background: var(--bg-alt); }
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+/* =====================================================================
+   TOP NAV
+   ===================================================================== */
+#topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+#topnav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.5rem;
+  gap: 1rem;
+}
+
+#topnav .nav-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#topnav .nav-name:hover { text-decoration: none; color: var(--accent); }
+
+#topnav nav {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+#topnav nav a {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+#topnav nav a:hover,
+#topnav nav a.active {
+  color: var(--accent);
+  background: var(--accent-dim);
+  text-decoration: none;
+}
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+#hero {
+  padding: 5rem 0 4rem;
+  background: var(--bg);
+}
+
+.hero-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.avatar-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--border);
+}
+
+.hero-text h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.hero-tagline {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.hero-inst {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.3rem 0.85rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.hero-links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+/* =====================================================================
+   ABOUT
+   ===================================================================== */
+#about p {
+  font-size: 1.05rem;
+  color: #374151;
+  max-width: 640px;
+  margin-bottom: 1rem;
+}
+
+/* =====================================================================
+   PUBLICATIONS / PUB LIST
+   ===================================================================== */
+.pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.pub-item {
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+  transition: border-color 0.15s;
+}
+
+.pub-item:hover { border-left-color: var(--accent); }
+
+.pub-title {
+  font-size: 0.975rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.pub-authors {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.pub-venue {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.pub-venue em { font-style: italic; }
+
+.pub-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-radius: 3px;
+  padding: 0.1rem 0.45rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* =====================================================================
+   SUBSECTION TITLES & PROJECT LIST
+   ===================================================================== */
+.subsection-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.project-list li:last-child { border-bottom: none; }
+
+.project-list li strong { color: var(--text); }
+
+/* =====================================================================
+   RESEARCH — interactive two-column layout
+   ===================================================================== */
+.research-layout {
+  display: grid;
+  grid-template-columns: 175px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.research-sidebar {
+  position: sticky;
+  top: 4.5rem;
+}
+
+.sidebar-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.theme-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.theme-pill {
+  display: block;
+  width: 100%;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: var(--font);
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.4;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.theme-pill:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.theme-pill.active {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.research-narrative { min-width: 0; }
+
+.research-para {
+  font-size: 1.05rem;
+  color: #374151;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 0.75rem;
+  margin-left: -0.75rem;
+  border-radius: 6px;
+}
+
+.research-para:last-child { margin-bottom: 0; }
+
+@keyframes highlight-fade {
+  0%   { background-color: #fef9c3; }
+  65%  { background-color: #fef9c3; }
+  100% { background-color: transparent; }
+}
+
+.research-para.highlight {
+  animation: highlight-fade 2s ease forwards;
+}
+
+/* =====================================================================
+   TEACHING
+   ===================================================================== */
+.course-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.course-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  flex-wrap: wrap;
+}
+
+.course-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.course-meta {
+  font-size: 0.82rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* =====================================================================
+   CV
+   ===================================================================== */
+#cv { text-align: center; }
+
+#cv p {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  transition: opacity 0.15s;
+}
+
+.btn-primary:hover { opacity: 0.88; text-decoration: none; }
+
+/* =====================================================================
+   VIEW-MORE LINK
+   ===================================================================== */
+.view-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.view-more:hover { text-decoration: underline; }
+
+/* =====================================================================
+   PAGE HEADER (sub-pages)
+   ===================================================================== */
+.page-header {
+  padding: 4rem 0 3rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header .section-label { margin-bottom: 0.4rem; }
+
+.page-header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+footer a { color: var(--muted); }
+footer a:hover { color: var(--accent); }
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 600px) {
+  :root { --section-gap: 3.5rem; }
+
+  .hero-inner { flex-direction: column; gap: 1.5rem; }
+
+  .avatar-photo { width: 80px; height: 80px; }
+
+  #topnav nav a { font-size: 0.78rem; padding: 0.25rem 0.45rem; }
+
+  .research-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .research-sidebar { position: static; }
+
+  .theme-pills { flex-direction: row; flex-wrap: wrap; }
+
+  .theme-pill { width: auto; }
+
+  .course-item { flex-direction: column; gap: 0.25rem; }
+}

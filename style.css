@@ -226,6 +226,15 @@ section:nth-of-type(even) { background: var(--bg-alt); }
 
 .pub-venue em { font-style: italic; }
 
+.pub-title a {
+  color: var(--text);
+}
+
+.pub-title a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 .pub-badge {
   display: inline-block;
   font-size: 0.72rem;
@@ -260,6 +269,13 @@ section:nth-of-type(even) { background: var(--bg-alt); }
 .project-list li:last-child { border-bottom: none; }
 
 .project-list li strong { color: var(--text); }
+
+.project-collab {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
 
 /* =====================================================================
    RESEARCH — interactive two-column layout
@@ -345,7 +361,7 @@ section:nth-of-type(even) { background: var(--bg-alt); }
 }
 
 /* =====================================================================
-   TEACHING
+   TEACHING — summary list (homepage)
    ===================================================================== */
 .course-list { display: flex; flex-direction: column; gap: 0.75rem; }
 
@@ -371,6 +387,113 @@ section:nth-of-type(even) { background: var(--bg-alt); }
   font-size: 0.82rem;
   color: var(--muted);
   white-space: nowrap;
+}
+
+/* =====================================================================
+   TEACHING — detailed course cards (teaching page)
+   ===================================================================== */
+.placeholder-note {
+  font-size: 1rem;
+  color: var(--muted);
+  font-style: italic;
+  padding: 1.5rem;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.course-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.course-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.course-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.course-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.course-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.course-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+  white-space: nowrap;
+}
+
+.course-desc {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.course-topics-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.course-topics-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.course-topics-list li {
+  font-size: 0.9rem;
+  color: #374151;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.course-topics-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+.course-materials-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
 }
 
 /* =====================================================================

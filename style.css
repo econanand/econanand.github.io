@@ -24,7 +24,9 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font);
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, #e2e8f0 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -47,8 +49,25 @@ img { max-width: 100%; display: block; }
   padding: 0 1.5rem;
 }
 
-section { padding: var(--section-gap) 0; }
-section:nth-of-type(even) { background: var(--bg-alt); }
+section {
+  padding: var(--section-gap) 0;
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - 385px),
+    var(--bg) calc(50% - 370px),
+    var(--bg) calc(50% + 370px),
+    transparent calc(50% + 385px)
+  );
+}
+section:nth-of-type(even) {
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - 385px),
+    var(--bg-alt) calc(50% - 370px),
+    var(--bg-alt) calc(50% + 370px),
+    transparent calc(50% + 385px)
+  );
+}
 
 .section-label {
   font-size: 0.75rem;
@@ -123,7 +142,13 @@ section:nth-of-type(even) { background: var(--bg-alt); }
    ===================================================================== */
 #hero {
   padding: 5rem 0 4rem;
-  background: var(--bg);
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - 385px),
+    var(--bg) calc(50% - 370px),
+    var(--bg) calc(50% + 370px),
+    transparent calc(50% + 385px)
+  );
 }
 
 .hero-inner {
@@ -545,7 +570,13 @@ section:nth-of-type(even) { background: var(--bg-alt); }
    ===================================================================== */
 .page-header {
   padding: 4rem 0 3rem;
-  background: var(--bg);
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - 385px),
+    var(--bg) calc(50% - 370px),
+    var(--bg) calc(50% + 370px),
+    transparent calc(50% + 385px)
+  );
   border-bottom: 1px solid var(--border);
 }
 
@@ -565,6 +596,13 @@ footer {
   text-align: center;
   font-size: 0.82rem;
   color: var(--muted);
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - 385px),
+    var(--bg) calc(50% - 370px),
+    var(--bg) calc(50% + 370px),
+    transparent calc(50% + 385px)
+  );
 }
 
 footer a { color: var(--muted); }
@@ -573,6 +611,18 @@ footer a:hover { color: var(--accent); }
 /* =====================================================================
    RESPONSIVE
    ===================================================================== */
+@media (max-width: 900px) {
+  body {
+    background-image: none;
+  }
+  #hero, .page-header, section, section:nth-of-type(even), footer {
+    background: var(--bg);
+  }
+  section:nth-of-type(even) {
+    background: var(--bg-alt);
+  }
+}
+
 @media (max-width: 600px) {
   :root { --section-gap: 3.5rem; }
 

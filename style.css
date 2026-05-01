@@ -714,12 +714,21 @@ footer a:hover { color: var(--accent); }
   text-decoration: none;
 }
 
-#course-intro p {
+#course-intro p,
+#blog-intro p {
   font-size: 1.075rem;
   color: var(--text);
   max-width: 640px;
   margin-bottom: 1rem;
   line-height: 1.7;
+}
+
+.post-excerpt {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-top: 0.4rem;
+  line-height: 1.6;
 }
 
 .course-page-tags {

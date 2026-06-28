@@ -637,6 +637,24 @@ section:nth-of-type(even) {
   margin: 0 0.05em;
 }
 
+/* On-this-page jump links (used on long sub-pages) */
+.page-nav {
+  margin-top: 1.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+.page-nav a { color: var(--muted); white-space: nowrap; }
+.page-nav a:hover { color: var(--accent); text-decoration: none; }
+
+.page-nav a:not(:last-child)::after {
+  content: "·";
+  color: var(--border);
+  margin: 0 0.55rem 0 0.85rem;
+}
+
 /* =====================================================================
    FOOTER
    ===================================================================== */

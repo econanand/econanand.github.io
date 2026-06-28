@@ -38,6 +38,14 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* Keyboard focus — visible only for keyboard users, not mouse clicks */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -112,7 +120,7 @@ section:nth-of-type(even) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3.5rem;
+  min-height: 3.5rem;
   gap: 1rem;
 }
 
@@ -467,17 +475,6 @@ section:nth-of-type(even) {
 /* =====================================================================
    TEACHING — detailed course cards (teaching page)
    ===================================================================== */
-.placeholder-note {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1rem;
-  color: var(--muted);
-  padding: 1.5rem;
-  border: 1px dashed var(--border);
-  border-radius: 6px;
-  text-align: center;
-}
-
 .course-cards {
   display: flex;
   flex-direction: column;
@@ -536,39 +533,6 @@ section:nth-of-type(even) {
   color: var(--text);
   line-height: 1.7;
   margin-bottom: 1.25rem;
-}
-
-.course-topics-label {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.4rem;
-  margin-top: 0.75rem;
-}
-
-.course-topics-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.course-topics-list li {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  color: var(--text);
-  padding-left: 1rem;
-  position: relative;
-}
-
-.course-topics-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--muted);
 }
 
 .course-materials-note {
@@ -837,4 +801,17 @@ footer a:hover { color: var(--accent); }
 
   .course-item { flex-direction: column; gap: 0.25rem; }
 
+}
+
+/* =====================================================================
+   ANCHOR OFFSET & MOTION PREFERENCES
+   ===================================================================== */
+/* Keep anchored sections clear of the sticky nav when jumped to */
+section[id],
+.page-header { scroll-margin-top: 4.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .research-para.highlight { animation: none; }
+  .btn-primary:hover { transform: none; }
 }

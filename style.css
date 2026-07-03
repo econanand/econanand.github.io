@@ -782,6 +782,56 @@ footer a:hover { color: var(--accent); }
   background: var(--accent-dim);
 }
 
+/* Resource list — compact two-column grid of annotated links / books */
+.resource-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.5rem;
+}
+
+.resource-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.resource-title {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.resource-desc {
+  margin-top: 0.25rem;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Book entries within a resource list: author line + student blurb */
+.book-author {
+  margin-top: 0.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.book-blurb {
+  margin-top: 0.4rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.book-attrib {
+  font-style: normal;
+  color: var(--muted);
+}
+
 /* =====================================================================
    RESPONSIVE
    ===================================================================== */
@@ -799,6 +849,8 @@ footer a:hover { color: var(--accent); }
 
 @media (max-width: 600px) {
   :root { --section-gap: 3.5rem; }
+
+  .resource-list { grid-template-columns: 1fr; column-gap: 0; }
 
   .hero-inner { flex-direction: column; gap: 1.5rem; }
 

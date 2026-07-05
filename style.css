@@ -756,6 +756,13 @@ footer a:hover { color: var(--accent); }
   line-height: 1.4;
 }
 
+/* The title is a link to the lecture PDF; keep it looking like a quiet
+   title and shift to the accent colour on hover instead of underlining. */
+a.lec-title:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
 .lec-pdfs {
   display: inline-flex;
   gap: 0.5rem;

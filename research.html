@@ -206,7 +206,8 @@
 
           if (!matches.length) return;
 
-          var offset = 72;
+          var nav = document.getElementById('topnav');
+          var offset = (nav ? nav.offsetHeight : 72) + 12;
           var top = matches[0].getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top: top, behavior: 'smooth' });
 

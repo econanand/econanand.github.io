@@ -868,6 +868,9 @@ footer a:hover { color: var(--accent); }
     justify-content: flex-start;
     width: 100%;
     gap: 0.4rem;
+    /* Pull the row left by the link padding so the first link's text
+       lines up under the name instead of sitting slightly indented. */
+    margin-left: -0.6rem;
   }
   /* Roomier tap targets on touch screens. */
   #topnav nav a { font-size: 0.8rem; padding: 0.45rem 0.6rem; }

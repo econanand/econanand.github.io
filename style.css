@@ -552,6 +552,38 @@ section:nth-of-type(even) {
 }
 
 /* =====================================================================
+   PUBLIC LECTURE POINTER (landing page, under Courses)
+   ===================================================================== */
+.lecture-pointer {
+  margin-top: 1.6rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.lecture-pointer-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.lecture-pointer a {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1.4;
+}
+
+.lecture-pointer a:hover { color: var(--accent); }
+
+/* =====================================================================
    PUBLIC LECTURES — video cards (teaching page)
    ===================================================================== */
 .lecture-list {

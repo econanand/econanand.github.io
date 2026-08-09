@@ -561,15 +561,18 @@ section:nth-of-type(even) {
 }
 
 .lecture-card {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 1.5rem;
-  align-items: start;
+  display: block;
   padding: 1.25rem;
   border: 1px solid var(--border);
   border-radius: 4px;
   background: var(--bg);
   transition: border-color 0.15s, transform 0.15s;
+}
+
+.lecture-card::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .lecture-card:hover {
@@ -581,6 +584,9 @@ section:nth-of-type(even) {
 .lecture-thumb {
   position: relative;
   display: block;
+  float: left;
+  width: 260px;
+  margin: 0.2rem 1.5rem 0.85rem 0;
   border-radius: 3px;
   overflow: hidden;
   background: var(--accent-dim);
@@ -612,12 +618,8 @@ section:nth-of-type(even) {
 
 .lecture-card:hover .lecture-play { background: var(--accent); }
 
-.lecture-body {
-  display: flex;
-  flex-direction: column;
-}
-
 .lecture-title {
+  display: block;
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 600;
@@ -627,6 +629,7 @@ section:nth-of-type(even) {
 }
 
 .lecture-meta {
+  display: block;
   font-family: var(--font-sans);
   font-size: 0.78rem;
   color: var(--muted);
@@ -635,6 +638,7 @@ section:nth-of-type(even) {
 }
 
 .lecture-desc {
+  display: block;
   font-family: var(--font-serif);
   font-size: 0.95rem;
   color: var(--text);
@@ -993,7 +997,7 @@ a.lec-title:hover {
   .course-item { flex-direction: column; gap: 0.25rem; }
 
   /* Stack the lecture thumbnail above its text on narrow screens. */
-  .lecture-card { grid-template-columns: 1fr; gap: 1.1rem; }
+  .lecture-thumb { float: none; width: 100%; margin: 0 0 1.1rem 0; }
 
 }
 

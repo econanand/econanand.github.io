@@ -302,6 +302,26 @@ section:nth-of-type(even) {
   text-decoration: underline;
 }
 
+.pub-access {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  margin-top: 0.35rem;
+  color: var(--muted);
+}
+
+.pub-access a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.pub-access a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.pub-sep { opacity: 0.5; margin: 0 0.15rem; }
+
 .pub-badge {
   font-family: var(--font-sans);
   display: inline-block;

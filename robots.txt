@@ -1,0 +1,5 @@
+# https://anandshrivastava.in
+User-agent: *
+Allow: /
+
+Sitemap: https://anandshrivastava.in/sitemap.xml

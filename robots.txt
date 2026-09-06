@@ -2,4 +2,10 @@
 User-agent: *
 Allow: /
 
+# cv.docx is the source file the PDF is generated from. It has the same
+# text as cv.pdf, which is the version the site actually links to, so
+# leaving both crawlable creates a duplicate with no way to declare a
+# canonical (neither format can carry the tag).
+Disallow: /cv.docx
+
 Sitemap: https://anandshrivastava.in/sitemap.xml
